@@ -1,18 +1,3 @@
-/*
-To Do:
-- current day is displayed at the top of the calendar ✅
-    - moment js ✅
-- timeblocks for standard business hours, WHEN I click into a timeblock THEN I can enter an event, 
-    - layout from bootstrap✅
-- each timeblock is color coded to indicate whether it is in the past, present, or future ✅
-    - if statement in js using moment for time ✅
-    - color coding from bootstrap ✅
-- WHEN I click the save button for that timeblock THEN the text for that event is saved in local storage and WHEN I refresh the page THEN the saved events persist
-    - local storage mod 4
-    - js event listener for buttons
-- 
-*/
-
 //variables for each time block
 var text8 = document.getElementById("Textarea8");
 var text9 = document.getElementById("Textarea9");
@@ -25,8 +10,19 @@ var text3 = document.getElementById("Textarea3");
 var text4 = document.getElementById("Textarea4");
 var text5 = document.getElementById("Textarea5");
 
+
 //variables for each button
 var btn8 = document.getElementById("button8");
+var btn9 = document.getElementById("button9");
+var btn10 = document.getElementById("button10");
+var btn11 = document.getElementById("button11");
+var btn12 = document.getElementById("button12");
+var btn1 = document.getElementById("button1");
+var btn2 = document.getElementById("button2");
+var btn3 = document.getElementById("button3");
+var btn4 = document.getElementById("button4");
+var btn5 = document.getElementById("button5");
+
 
 //variable for current date and time
 var today = moment();
@@ -115,96 +111,100 @@ if (today.format("HH") == 17) {
     text5.classList.add("bg-success")
 }
 
-
-/*
-var plans8 = localStorage.getItem("plans8");
-text8.textContent = plans8;
-
-btn8.addEventListener("click", function() {
-    localStorage.setItem("plans8", plans8);
-  });
-
-console.log(text8.textContent)
-
-var counter = document.querySelector("#counter");
-var addButton = document.querySelector("#add");
-var subtractButton = document.querySelector("#subtract");
-
-var count = localStorage.getItem("count");
-
-counter.textContent = count;
-
-addButton.addEventListener("click", function() {
-  if (count < 24) {
-    count++;
-    counter.textContent = count;
-    localStorage.setItem("count", count);
-  }
-});
-
-subtractButton.addEventListener("click", function() {
-  if (count > 0) {
-    count--;
-    counter.textContent = count;
-    localStorage.setItem("count", count);
-  }
-});
-
-// This function is being called below and will run when the page loads.
-function init() {
-    // Get stored todos from localStorage
-    var storedTodos = JSON.parse(localStorage.getItem("todos"));
-  
-    // If todos were retrieved from localStorage, update the todos array to it
-    if (storedTodos !== null) {
-      todos = storedTodos;
-    }
-  
-    // This is a helper function that will render todos to the DOM
-    renderTodos();
-  }
-  
-  function storeTodos() {
-    // Stringify and set key in localStorage to todos array
-    localStorage.setItem("todos", JSON.stringify(todos));
-  }
-  
-  // Add submit event to form
-  todoForm.addEventListener("submit", function(event) {
+//when user clicks save button, any text written in time block will be saved to local storage
+btn8.addEventListener("click", function (event) {
     event.preventDefault();
+    var plans8 = text8.value.trim()
+    localStorage.setItem("plans8", plans8);
+});
+
+btn9.addEventListener("click", function (event) {
+    event.preventDefault();
+    var plans9 = text9.value.trim()
+    localStorage.setItem("plans9", plans9);
+});
+
+btn10.addEventListener("click", function (event) {
+    event.preventDefault();
+    var plans10 = text10.value.trim()
+    localStorage.setItem("plans10", plans10);
+});
+
+btn11.addEventListener("click", function (event) {
+    event.preventDefault();
+    var plans11 = text11.value.trim()
+    localStorage.setItem("plans11", plans11);
+});
+
+btn12.addEventListener("click", function (event) {
+    event.preventDefault();
+    var plans12 = text12.value.trim()
+    localStorage.setItem("plans12", plans12);
+});
+
+btn1.addEventListener("click", function (event) {
+    event.preventDefault();
+    var plans1 = text1.value.trim()
+    localStorage.setItem("plans1", plans1);
+});
+
+btn2.addEventListener("click", function (event) {
+    event.preventDefault();
+    var plans2 = text2.value.trim()
+    localStorage.setItem("plans2", plans2);
+});
+
+btn3.addEventListener("click", function (event) {
+    event.preventDefault();
+    var plans3 = text3.value.trim()
+    localStorage.setItem("plans3", plans3);
+});
+
+btn4.addEventListener("click", function (event) {
+    event.preventDefault();
+    var plans4 = text4.value.trim()
+    localStorage.setItem("plans4", plans4);
+});
+
+btn5.addEventListener("click", function (event) {
+    event.preventDefault();
+    var plans5 = text5.value.trim()
+    localStorage.setItem("plans5", plans5);
+});
+
+
+//this function will run when page loads; it retrieves text saved to local storage and displays it in the corresponding time block
+function init() {
+    var storedPlans8 = localStorage.getItem("plans8");
+    document.getElementById("Textarea8").innerHTML = storedPlans8;
+
+    var storedPlans9 = localStorage.getItem("plans9");
+    document.getElementById("Textarea9").innerHTML = storedPlans9;
+
+    var storedPlans10 = localStorage.getItem("plans10");
+    document.getElementById("Textarea10").innerHTML = storedPlans10;
+
+    var storedPlans11 = localStorage.getItem("plans11");
+    document.getElementById("Textarea11").innerHTML = storedPlans11;
+
+    var storedPlans12 = localStorage.getItem("plans12");
+    document.getElementById("Textarea12").innerHTML = storedPlans12;
+
+    var storedPlans1 = localStorage.getItem("plans1");
+    document.getElementById("Textarea1").innerHTML = storedPlans1;
+
+    var storedPlans2 = localStorage.getItem("plans2");
+    document.getElementById("Textarea2").innerHTML = storedPlans2;
+
+    var storedPlans3 = localStorage.getItem("plans3");
+    document.getElementById("Textarea3").innerHTML = storedPlans3;
+
+    var storedPlans4 = localStorage.getItem("plans4");
+    document.getElementById("Textarea4").innerHTML = storedPlans4;
+
+    var storedPlans5 = localStorage.getItem("plans5");
+    document.getElementById("Textarea5").innerHTML = storedPlans5;
+  }
   
-    var todoText = todoInput.value.trim();
-  
-    // Return from function early if submitted todoText is blank
-    if (todoText === "") {
-      return;
-    }
-  
-    // Add new todoText to todos array, clear the input
-    todos.push(todoText);
-    todoInput.value = "";
-  
-    // Store updated todos in localStorage, re-render the list
-    storeTodos();
-    renderTodos();
-  });
-  
-  // Add click event to todoList element
-  todoList.addEventListener("click", function(event) {
-    var element = event.target;
-  
-    // Checks if element is a button
-    if (element.matches("button") === true) {
-      // Get its data-index value and remove the todo element from the list
-      var index = element.parentElement.getAttribute("data-index");
-      todos.splice(index, 1);
-  
-      // Store updated todos in localStorage, re-render the list
-      storeTodos();
-      renderTodos();
-    }
-  });
-  
-  // Calls init to retrieve data and render it to the page on load
-  init()
-  */
+// calling function init
+init()

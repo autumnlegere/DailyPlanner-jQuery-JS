@@ -1,71 +1,79 @@
+/*font style, font size, and line height for entire page*/
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
 }
 
-textarea {
-  background: transparent;
-  border: none;
-  resize: none;
-  color: #000000;
-  border-left: 1px solid black;
-  padding: 10px;
-}
 
+
+/*styling of jumbotron header*/
 .jumbotron {
   text-align: center;
-  background-color: transparent;
+  background-color: rgb(210, 226, 240);
   color: black;
   border-radius: 0;
   border-bottom: 10px solid black;
 }
 
-.description {
-  white-space: pre-wrap;
+/*padding for p's in header*/
+p {
+  padding-top: 20px;
 }
 
-.time-block {
-  text-align: center;
-  border-radius: 15px;
-}
-
+/*display settings for class row (applied to each time block)*/
 .row {
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;
 }
 
-.hour {
-  background-color: #ffffff;
-  color: #000000;
-  border-top: 1px dashed #000000;
+/*border style and text alignment for labels*/
+label {
+  border: solid;
+  border-width: 1px;
+  border-radius: 5px 5px 0px 0px;
+  text-align: center;
 }
 
-.past {
-  background-color: #d3d3d3;
-  color: white;
+/*bottom border removed from all labels except last one using class btm*/
+.btm {
+  border-bottom: none;
 }
 
-.present {
-  background-color: #ff6961;
-  color: white;
+/*bottom border removed from all buttons except the last one on page*/
+#button8 {
+  border-bottom: none;
 }
 
-.future {
-  background-color: #77dd77;
-  color: white;
+#button9 {
+  border-bottom: none;
 }
 
-.saveBtn {
-  border-left: 1px solid black;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-  background-color: #06aed5;
-  color: white;
+#button10 {
+  border-bottom: none;
 }
 
-.saveBtn i:hover {
-  font-size: 20px;
-  transition: all 0.3s ease-in-out;
+#button11 {
+  border-bottom: none;
+}
+
+#button12 {
+  border-bottom: none;
+}
+
+#button1 {
+  border-bottom: none;
+}
+
+#button2 {
+  border-bottom: none;
+}
+
+#button3 {
+  border-bottom: none;
+}
+
+#button4 {
+  border-bottom: none;
 }
